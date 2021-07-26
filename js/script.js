@@ -27,4 +27,3 @@ let escapedText = "He said: \"Yes!\", that's for sure";
 let escapedText2 = 'He said: "Yes!", that\'s for sure.';
 // If I want to use backslash in text
 let escapedText3 = 'This is \\ it';
-document. write(tex1);

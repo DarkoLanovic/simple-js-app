@@ -1,4 +1,4 @@
-alert('Hello World');
+alert('Hello, My name is Darko');
 
 
 let favoriteFood = 'Mediterranean';

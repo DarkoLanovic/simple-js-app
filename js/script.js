@@ -1,5 +1,5 @@
 
-log pokemonList = [{name: "Ivysaur", heigh: "1", type: ["grass","poison"]},
+let pokemonList = [{name: "Ivysaur", heigh: "1", type: ["grass","poison"]},
                    {name: "Spearow", heigh: "0.3", type: ["flying","normal"]},
                    {name: "Rhydon", heigh: "1.9", type: ["rock","ground"]},
                    {name: "Starmie", heigh: "1.1", type: ["psychic","water"]},

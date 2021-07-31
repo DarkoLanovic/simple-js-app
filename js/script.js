@@ -14,7 +14,7 @@ for (let i=0; i < pokemonList.length; i++){
 
 for (let i=0; i < pokemonList.length; i++){
   if (pokemonLost[i].heigh >2){
-    console.log(pokemonList[i] + ' -Wow, that\'s big');
+    document.write(pokemonList[i] + ' -Wow, that\'s big');
   }
 }
 

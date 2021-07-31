@@ -36,7 +36,7 @@ let pokemonList = [
 for (let i=0; i < pokemonList.length; i++){
   // checking which pokemon has the biggest heigh
   if (pokemonList[i].heigh >2){
-    document.write(' "' + pokemonList[i].name + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + ' - Wow, that\'s big!')
+    document.write('<p> "' + pokemonList[i].name + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + ' - Wow, that\'s big!' + '</p>')
   }else {
     document.write('<p>' + ' "' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + '</p>');
   }

@@ -1,20 +1,47 @@
 
 let pokemonList = [
-  {name: "Ivysaur", heigh: "1", type: ["grass","poison"]},
-  {name: "Spearow", heigh: "0.3", type: ["flying","normal"]},
-  {name: "Rhydon", heigh: "1.9", type: ["rock","ground"]},
-  {name: "Starmie", heigh: "1.1", type: ["psychic","water"]},
-  {name: "Articuno", heigh: "1.7", type: ["ice","flying"]},
-  {name: "Aggron", heigh: "2.1", type: ["steel","rock"]}
+  {
+    name: "Ivysaur",
+    heigh: "1",
+    type: ["grass","poison"]
+  },
+  {
+    name: "Spearow",
+    heigh: "0.3",
+    type: ["flying","normal"]}
+    ,
+  {
+    name: "Rhydon",
+    heigh: "1.9",
+    type: ["rock","ground"]
+  },
+  {
+    name: "Starmie",
+    heigh: "1.1",
+    type: ["psychic","water"]
+  },
+  {
+    name: "Articuno",
+    heigh: "1.7",
+    type: ["ice","flying"]
+  },
+  {
+    name: "Aggron",
+    heigh: "2.1",
+    type: ["steel","rock"]
+  }
 ];
 
+// "for" loop which iterate over each object within that array and display them in order
 for (let i=0; i < pokemonList.length; i++){
-  document.write(' " ' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"');
+  // checking which pokemon has the biggest heigh
+  if (pokemonList[i].heigh >2){
+    document.write(' "' + pokemonList[i].name + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + ' - Wow, that\'s big!')
+  }else {
+    document.write('<p>' + ' "' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + '</p>');
+  }
 }
 
-if (pokemonList.heigh >2) {
-  document.write('Waw, its,big!')
-}
 
 
 

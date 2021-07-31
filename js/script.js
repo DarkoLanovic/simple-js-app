@@ -12,10 +12,8 @@ for (let i=0; i < pokemonList.length; i++){
   document.write('"' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"');
 }
 
-for (let i=0; i < pokemonList.length; i++){
-  if (pokemonLost[i].heigh >2){
-    document.write(pokemonList[i] + ' -Wow, that\'s big');
-  }
+if (pokemonList.heigh >2) {
+  document.write('Waw, its,big!')
 }
 
 let person = [

@@ -10,12 +10,13 @@ let pokemonList = [
 
 for (let i=0; i < pokemonList.length; i++){
   document.write('"' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"');
-  if (pokemonList[i].heigh >2){
-    document.writw('Wow, that\'s big');
-  }
 }
 
-
+for (let i=0; i < pokemonList.length; i++){
+  if (pokemonLost[i].heigh >2){
+    console.log(pokemonList[i] + ' -Wow, that\'s big');
+  }
+}
 
 let person = [
   {name: "person1", age: 16},

@@ -38,7 +38,8 @@ for (let i=0; i < pokemonList.length; i++){
   if (pokemonList[i].heigh >2){
     document.write('<p> "' + pokemonList[i].name + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + ' - Wow, that\'s big!' + '</p>')
   }else {
-    document.write('<p>' + ' "' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + '</p>');
+    document.write(`<p>"${pokemonList[i].name} (heigh: ${pokemonList[i].heigh})"</p>`);
+    //document.write('<p>' + ' "' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + '</p>');
   }
 }
 

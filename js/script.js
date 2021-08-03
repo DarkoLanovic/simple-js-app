@@ -42,8 +42,10 @@ let pokemonRepository = (function () {
     };
   })();
 
+  document.write(pokemonRepository.getAll());
+
     // "forEach" loop which iterate over each object within that array and display them in order with their Name and Heigh
-    pokemonList.forEach(function(item) {
+    pokemonRepository.forEach(function(item) {
       // checking which pokemon has the biggest heigh
       if (item.heigh >2){
         document.write('<p> "' + item.name + ' (heigh: ' + item.heigh + ')' + '"' + ' - Wow, that\'s the big one!' + '</p>')

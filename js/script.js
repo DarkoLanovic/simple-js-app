@@ -49,8 +49,8 @@ let pokemonRepository = (function () {
     };
   })();
 
-  document.write( pokemonRepository.getAll() );
 
+pokemonRepository.getAll();
 
   // "forEach" loop which iterate over each object within that array and display them in order with their Name and Heigh
   pokemonRepository.forEach(function(item) {

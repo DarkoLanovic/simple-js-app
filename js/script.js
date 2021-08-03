@@ -33,7 +33,7 @@ let pokemonList = [
 ];
 
 // "for" loop which iterate over each object within that array and display them in order
-pokemonList.forEach(function(item){
+pokemonList.forEach(function(i){
   // checking which pokemon has the biggest heigh
   if (pokemonList[i].heigh >2){
     document.write('<p> "' + pokemonList[i].name + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + ' - Wow, that\'s big!' + '</p>')

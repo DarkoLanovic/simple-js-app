@@ -1,60 +1,57 @@
 
-let pokemonList = [
-  {
-    name: "Ivysaur",
-    heigh: "1",
-    type: ["grass","poison"]
-  },
-  {
-    name: "Spearow",
-    heigh: "0.3",
-    type: ["flying","normal"]}
-    ,
-  {
-    name: "Rhydon",
-    heigh: "1.9",
-    type: ["rock","ground"]
-  },
-  {
-    name: "Starmie",
-    heigh: "1.1",
-    type: ["psychic","water"]
-  },
-  {
-    name: "Articuno",
-    heigh: "1.7",
-    type: ["ice","flying"]
-  },
-  {
-    name: "Aggron",
-    heigh: "2.1",
-    type: ["steel","rock"]
-  }
-];
+let pokemonRepository = (function () {
+  let pokemonList = [
+    {
+      name: "Ivysaur",
+      heigh: "1",
+      type: ["grass","poison"]
+    },
+    {
+      name: "Spearow",
+      heigh: "0.3",
+      type: ["flying","normal"]}
+      ,
+      {
+        name: "Rhydon",
+        heigh: "1.9",
+        type: ["rock","ground"]
+      },
+      {
+        name: "Starmie",
+        heigh: "1.1",
+        type: ["psychic","water"]
+      },
+      {
+        name: "Articuno",
+        heigh: "1.7",
+        type: ["ice","flying"]
+      },
+      {
+        name: "Aggron",
+        heigh: "2.1",
+        type: ["steel","rock"]
+      }
+    ];
 
-// "for" loop which iterate over each object within that array and display them in order
-pokemonList.forEach(function(item) {
-  // checking which pokemon has the biggest heigh
-  if (item.heigh >2){
-    document.write('<p> "' + item.name + ' (heigh: ' + item.heigh + ')' + '"' + ' - Wow, that\'s big!' + '</p>')
-  }else {
-    document.write(`<p>"${item.name} (heigh: ${item.heigh})"</p>`);
-    //document.write('<p>' + ' "' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + '</p>');
-  }
-});
+    function add(pokemon) {
+      pokemonList.push(pokemon);
+    }
 
+    function getAll() {
+      return pokemonList;
+    };
+  })();
 
-// let foodList = ['tuna', 'cheese', 'salad'];
-//
-// document.write('<h3>===for LOOP===</h3>');
-// for (let i = 0; i < foodList.length; i++) {
-//   document.write('<p>' + foodList[i] + '</p>');
-// }
-//
-// document.write('<h3>===forEach LOOP===</h3>');
-// foodList.forEach(function (item) {
-//   document.write('<p>' + item + '</p>');
-// });
+    // "forEach" loop which iterate over each object within that array and display them in order with their Name and Heigh
+    pokemonList.forEach(function(item) {
+      // checking which pokemon has the biggest heigh
+      if (item.heigh >2){
+        document.write('<p> "' + item.name + ' (heigh: ' + item.heigh + ')' + '"' + ' - Wow, that\'s the big one!' + '</p>')
+      }else {
+        document.write(`<p>"${item.name} (heigh: ${item.heigh})"</p>`);
+        //document.write('<p>' + ' "' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + '</p>');
+      }
+    });
 
 
 
@@ -87,32 +84,33 @@ pokemonList.forEach(function(item) {
 
 
 
-//alert('Hello, My name is Darko');
 
-//let favoriteFood = 'Mediterranean';
-//document.write(favoriteFood);
+    //alert('Hello, My name is Darko');
 
-//let myName = 'Darko';
-//document.write(myName);
-//myName = 'Lanovic';
-//document.write(myName);
+    //let favoriteFood = 'Mediterranean';
+    //document.write(favoriteFood);
 
-// Math exsmles
-//let simpleAddition = 2 + 2;
-//document.write(simpleAddition);
+    //let myName = 'Darko';
+    //document.write(myName);
+    //myName = 'Lanovic';
+    //document.write(myName);
 
-//let size = 100;
-//let doubleSize = size * 2;
-//document.write(doubleSize);
+    // Math exsmles
+    //let simpleAddition = 2 + 2;
+    //document.write(simpleAddition);
 
-//let minSize = (doubleSize * 2) - (size / 2);
-//document.write(minSize);
+    //let size = 100;
+    //let doubleSize = size * 2;
+    //document.write(doubleSize);
 
-// STRINGS
-//let text1 = 'This is a text!';
-//let text2 = "This uses double quotes.";
+    //let minSize = (doubleSize * 2) - (size / 2);
+    //document.write(minSize);
 
-//let escapedText = "He said: \"Yes!\", that's for sure";
-//let escapedText2 = 'He said: "Yes!", that\'s for sure.';
-// If I want to use backslash in text
-//let escapedText3 = 'This is \\ it';
+    // STRINGS
+    //let text1 = 'This is a text!';
+    //let text2 = "This uses double quotes.";
+
+    //let escapedText = "He said: \"Yes!\", that's for sure";
+    //let escapedText2 = 'He said: "Yes!", that\'s for sure.';
+    // If I want to use backslash in text
+    //let escapedText3 = 'This is \\ it';

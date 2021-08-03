@@ -33,7 +33,7 @@ let pokemonList = [
 ];
 
 // "for" loop which iterate over each object within that array and display them in order
-for (let i=0; i < pokemonList.length; i++){
+pokemonList.forEach(function(item){
   // checking which pokemon has the biggest heigh
   if (pokemonList[i].heigh >2){
     document.write('<p> "' + pokemonList[i].name + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + ' - Wow, that\'s big!' + '</p>')
@@ -41,7 +41,20 @@ for (let i=0; i < pokemonList.length; i++){
     document.write(`<p>"${pokemonList[i].name} (heigh: ${pokemonList[i].heigh})"</p>`);
     //document.write('<p>' + ' "' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + '</p>');
   }
-}
+});
+
+
+// let foodList = ['tuna', 'cheese', 'salad'];
+//
+// document.write('<h3>===for LOOP===</h3>');
+// for (let i = 0; i < foodList.length; i++) {
+//   document.write('<p>' + foodList[i] + '</p>');
+// }
+//
+// document.write('<h3>===forEach LOOP===</h3>');
+// foodList.forEach(function (item) {
+//   document.write('<p>' + item + '</p>');
+// });
 
 
 

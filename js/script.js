@@ -1,4 +1,5 @@
 
+// IIFE
 let pokemonRepository = (function () {
   let pokemonList = [
     {
@@ -49,19 +50,62 @@ let pokemonRepository = (function () {
     };
   })();
 
-  // calling function getAll from IIFE
-  let pokemonList = pokemonRepository.getAll();
+  console.log(pokemonRepository.getAll());
+  pokemonRepository.add({ name: "Pikachu", heigh: 0.3, types: [electric] });
 
-  // "forEach" loop which iterate over each object within that array and display them in order with their Name and Heigh
-  pokemonList.forEach(function(item) {
-    // checking which pokemon has the biggest heigh
-    if (item.heigh >2){
-      document.write('<p> "' + item.name + ' (heigh: ' + item.heigh + ')' + '"' + ' - Wow, that\'s the big one!' + '</p>')
-    }else {
-      document.write(`<p>"${item.name} (heigh: ${item.heigh})"</p>`);
-      //document.write('<p>' + ' "' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + '</p>');
-    }
+  console.log(pokemonRepository.getAll());
+
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    let pokemonList = document.querySelactor(".pokemon-list");
+    let listPokemon = dokument.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = "placeholder";
+    button.classList.add("button-class");
+    listPokemon.appendChild(button);
+    pokemonList.appendChild(listPokemon);
+
+
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //calling function getAll from IIFE
+  //let pokemonList = pokemonRepository.getAll();
+  // // "forEach" loop which iterate over each object within that array and display them in order with their Name and Heigh
+  // pokemonList.forEach(function(item) {
+  //   // checking which pokemon has the biggest heigh
+  //   if (item.heigh >2){
+  //     document.write('<p> "' + item.name + ' (heigh: ' + item.heigh + ')' + '"' + ' - Wow, that\'s the big one!' + '</p>')
+  //   }else {
+  //     document.write(`<p>"${item.name} (heigh: ${item.heigh})"</p>`);
+  //     //document.write('<p>' + ' "' + pokemonList[i].name + ' ' + ' (heigh: ' + pokemonList[i].heigh + ')' + '"' + '</p>');
+  //   }
+  // });
 
 
 

@@ -1,7 +1,7 @@
 
 // IIFE
 let pokemonRepository = (function () {
-  let pokemonList = [
+  let repository = [
     {
       name: "Ivysaur",
       heigh: "1",
@@ -35,36 +35,43 @@ let pokemonRepository = (function () {
     ];
 
     function add(pokemon) {
-      if (typeof pokemon === 'object') {
-        pokemonList.push(pokemon);
+      if (
+        typeof pokemon === "object" &&
+        "name" in pokemon &&
+        "heihgt" in pokemon &&
+        "type" in pokemon) {
+        repository.push(pokemon);
+      }else {
+        console.log("pokemon is not correct");
       }
     }
 
     function getAll() {
       return pokemonList;
     }
+    function.addListItem(pokemon){
+      let pokemonList = document.querySelactor(".pokemon-list");
+      let listPokemon = document.createElement("li");
+      let button = document.createElement("button");
+      button.innerText = pokemon.name;
+      button.classList.add("button-class");
+      listPokemon.appendChild(button);
+      pokemonList.appendChild(listPokemon);
+    }
 
     return {
       getAll: getAll,
-      add: add
+      add: add'
+      addListItem: addListItem
     };
   })();
 
-  console.log(pokemonRepository.getAll());
   pokemonRepository.add({ name: "Pikachu", heigh: 0.3, types: [electric] });
 
   console.log(pokemonRepository.getAll());
 
   pokemonRepository.getAll().forEach(function (pokemon) {
-    let pokemonList = document.querySelactor(".pokemon-list");
-    let listPokemon = dokument.createElement("li");
-    let button = document.createElement("button");
-    button.innerText = "placeholder";
-    button.classList.add("button-class");
-    listPokemon.appendChild(button);
-    pokemonList.appendChild(listPokemon);
-
-
+    pokemonRepository.addListItem(pokemon);
   });
 
 

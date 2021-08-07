@@ -1,6 +1,4 @@
 
-
-
 let pokemonRepository = (function () {
   let repository = [
     {
@@ -11,29 +9,29 @@ let pokemonRepository = (function () {
     {
       name: "Spearow",
       heigh: "0.3",
-      type: ["flying","normal"]}
-      ,
-      {
-        name: "Rhydon",
-        heigh: "1.9",
-        type: ["rock","ground"]
-      },
-      {
-        name: "Starmie",
-        heigh: "1.1",
-        type: ["psychic","water"]
-      },
-      {
-        name: "Articuno",
-        heigh: "1.7",
-        type: ["ice","flying"]
-      },
-      {
-        name: "Aggron",
-        heigh: "2.1",
-        type: ["steel","rock"]
-      },
-    ];
+      type: ["flying","normal"]
+    },
+    {
+      name: "Rhydon",
+      heigh: "1.9",
+      type: ["rock","ground"]
+    },
+    {
+      name: "Starmie",
+      heigh: "1.1",
+      type: ["psychic","water"]
+    },
+    {
+      name: "Articuno",
+      heigh: "1.7",
+      type: ["ice","flying"]
+    },
+    {
+      name: "Aggron",
+      heigh: "2.1",
+      type: ["steel","rock"]
+    },
+  ];
 
   function add(pokemon) {
     if (

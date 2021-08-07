@@ -1,17 +1,17 @@
 button-class {
-  background-color: #4caf50;
-  border: none;
+  background-color: #865CA3;
+  border: 10px;
   color: white;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 18px;
   margin: 4px 2px;
-  -webkit-translation-duration: 0.4s;
+  /*-webkit-translation-duration: 0.4s;*/
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: white;
-  color: black;
+  background-color: #865CA3;
+  color: #79A35C;
   border: 2px solid #4caf50;
 }

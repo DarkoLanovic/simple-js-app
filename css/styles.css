@@ -1,17 +1,25 @@
-button-class {
-  background-color: #865ca3;
-  border: none;
-  color: #79a35c;
-  padding: 16px 32px;
-  text-align: center;
+.background {
+  background-color: #fdbc9d;
+  color: #1eaa08;
+}
+
+.title {
+  text-align: left;
+}
+
+.button-class {
+  background-color: #bfd42b;
+  padding: 10px 80px;
+  text-align: right ;
   text-decoration: none;
-  display: inline;
-  font-size: 18px;
-  margin: 4px 2px;
-  -webkit-translation-duration: 0.4s;
-  transition-duration: 0.4s;
+  display: block;
+  font-size: 27px;
+  margin: 8px 10px;
+  color: #0c0f70;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.8);
+}
+
+button:hover, button:focus {
   cursor: pointer;
-  background-color: white;
-  color: black;
-  border: 2px solid #4caf50;
+  opacity: 0.5;
 }

@@ -48,7 +48,8 @@ let pokemonRepository = (function () {
   function getAll() {
     return repository;
   }
-  function addListItem(pokemon){
+
+  function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");
     let listItem = document.createElement("li");
     let button = document.createElement("button");
@@ -56,7 +57,17 @@ let pokemonRepository = (function () {
     button.classList.add("button-class");
     listItem.appendChild(button);
     pokemonList.appendChild(listItem);
+    button.addEventListener('click', function(event) {
+      console.log(pokemon);
+      showDetails(pokemon);
+    });
+
   }
+
+  function showDetails(pokemon) {
+      console.log();
+  }
+
   return {
     add: add,
     getAll: getAll,

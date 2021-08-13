@@ -13,13 +13,11 @@
   min-width: 25%;
   background-color: #bfd42b;
   padding: 10px 80px;
-  text-align: center ;
+  text-align: left;
   text-decoration: none;
-  /* display: block; */
   font-size: 27px;
-  margin: 8px 10px;
+  margin: 8px 5px;
   color: #0c0f70;
-  /* border-bottom: 4px solid rgba(0, 0, 0, 0.8); */
 }
 
 button:hover, button:focus {

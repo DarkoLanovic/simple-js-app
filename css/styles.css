@@ -5,14 +5,17 @@
 
 .title {
   text-align: left;
+  padding: 20px;
 }
 
 .button-class {
+  display: inline-block;
+  min-width: 25%;
   background-color: #bfd42b;
   padding: 10px 80px;
-  text-align: right ;
+  text-align: center ;
   text-decoration: none;
-  display: block;
+  /* display: block; */
   font-size: 27px;
   margin: 8px 10px;
   color: #0c0f70;

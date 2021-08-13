@@ -36,7 +36,9 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
       console.log(pokemon);
+    });
   }
 // Function for load data from an external source
 function loadList() {
@@ -74,7 +76,8 @@ function loadDetails(item) {
     add: add,
     getAll: getAll,
     addListItem: addListItem,
-    loadList: loadList
+    loadList: loadList,
+    loadDetails: loadDetails
   };
 })();
 

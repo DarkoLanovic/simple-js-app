@@ -29,6 +29,7 @@ let pokemonRepository = (function () {
     });
   }
 
+// Function for load data from an external source
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -46,6 +47,7 @@ let pokemonRepository = (function () {
     })
   }
 
+// Function to load details data for a given Pokemon
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
@@ -78,6 +80,7 @@ let pokemonRepository = (function () {
 
 
 pokemonRepository.loadList().then(function () {
+  // Data is loaded
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
@@ -139,7 +142,7 @@ pokemonRepository.loadList().then(function () {
 //   })
 // }
 //
-// // Function to load details data for a given Pokemon
+//
 // function loadDetails(item) {
 //   let url = item.detailsUrl;
 //   return fetch(url).then(function (response) {
@@ -173,7 +176,7 @@ pokemonRepository.loadList().then(function () {
 //
 //
 // pokemonRepository.loadList().then(function() {
-//   // Data is loaded
+//
 //   pokemonRepository.getAll().forEach(function(pokemon) {
 //     pokemonRepository.addListItem(pokemon);
 //   });

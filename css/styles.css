@@ -19,7 +19,7 @@
   font-size: 27px;
   margin: 8px 10px;
   color: #0c0f70;
-  border-bottom: 4px solid rgba(0, 0, 0, 0.8);
+  /* border-bottom: 4px solid rgba(0, 0, 0, 0.8); */
 }
 
 button:hover, button:focus {

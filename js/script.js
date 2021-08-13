@@ -1,37 +1,8 @@
 
 let pokemonRepository = (function () {
-  let repository = [
-    {
-      name: "Ivysaur",
-      heigh: "1",
-      type: ["grass","poison"]
-    },
-    {
-      name: "Spearow",
-      heigh: "0.3",
-      type: ["flying","normal"]
-    },
-    {
-      name: "Rhydon",
-      heigh: "1.9",
-      type: ["rock","ground"]
-    },
-    {
-      name: "Starmie",
-      heigh: "1.1",
-      type: ["psychic","water"]
-    },
-    {
-      name: "Articuno",
-      heigh: "1.7",
-      type: ["ice","flying"]
-    },
-    {
-      name: "Aggron",
-      heigh: "2.1",
-      type: ["steel","rock"]
-    },
-  ];
+  let repository = [];
+
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   function add(pokemon) {
     if (
@@ -67,11 +38,43 @@ let pokemonRepository = (function () {
   function showDetails(pokemon) {
       console.log(pokemon);
   }
+// Function for load data from an external source
+function loadList() {
+  return fetch(apiUrl).then(function(response) {
+    return response.json();
+  }).then(function (jason) {
+    json.result.forEach(function (item) {
+      let pokemon = {
+        name: item.name,
+        detailsUrl: item.url
+      };
+      add(pokemon);
+    });
+  }).catch(function (e) {
+    console.error(e);
+  })
+}
+
+// Function to load details data for a given Pokemon
+function loadDetails(item) {
+  let url = item.detailsUrl;
+  return fetch(url).then(function (response) {
+    return response.jason();
+  }).then(function (details) {
+    // Add the details to the item
+    item.imageUrl = details.sprites.front_default;
+    item.height = details.height;
+    item.types = details.types;
+  }).catch(function (e) {
+    console.error(e);
+  });
+}
 
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    loadList: loadList
   };
 })();
 
@@ -79,8 +82,11 @@ pokemonRepository.add({ name: "Pikachu", height: 0.3, types: ["electric"] });
 
 console.log(pokemonRepository.getAll());
 
-pokemonRepository.getAll().forEach(function (pokemon) {
-  pokemonRepository.addListItem(pokemon);
+pokemonRepository.loadList().then(function() {
+  // Data is loaded
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
+  });
 });
 
 
@@ -89,6 +95,38 @@ pokemonRepository.getAll().forEach(function (pokemon) {
 
 
 
+// {
+//   name: "Ivysaur",
+//   heigh: "1",
+//   type: ["grass","poison"]
+// },
+// {
+//   name: "Spearow",
+//   heigh: "0.3",
+//   type: ["flying","normal"]
+// },
+// {
+//   name: "Rhydon",
+//   heigh: "1.9",
+//   type: ["rock","ground"]
+// },
+// {
+//   name: "Starmie",
+//   heigh: "1.1",
+//   type: ["psychic","water"]
+// },
+// {
+//   name: "Articuno",
+//   heigh: "1.7",
+//   type: ["ice","flying"]
+// },
+// {
+//   name: "Aggron",
+//   heigh: "2.1",
+//   type: ["steel","rock"]
+// },
+// ];
+//
 
 
 

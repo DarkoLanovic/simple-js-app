@@ -15,10 +15,10 @@ let pokemonRepository = (function () {
       console.log("pokemon is not correct");
     }
   }
+
   function getAll() {
     return pokemonList;
   }
-
 
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list");

@@ -24,3 +24,12 @@ button:hover, button:focus {
   cursor: pointer;
   opacity: 0.5;
 }
+
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  // CSS for modal container
+  display: block;
+}

@@ -1,6 +1,7 @@
 
 let pokemonRepository = (function () {
   let pokemonList = [];
+  let modalContainer = document.querySelector('#modal-container');
 
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
@@ -50,10 +51,9 @@ let pokemonRepository = (function () {
     });
   }
 
-  // MODAL FUNCTIONS
+  //   MODAL FUNCTIONS
 
-  function showModal(title,text) {
-    let modalContainer = document.querySelector('#modal-container');
+  function showModal(title, text) {
 
     //Clear all existing modal content
     modalContainer.innerHTML = '';
@@ -61,10 +61,11 @@ let pokemonRepository = (function () {
     let modal = document.createElement('div');
     modal.classList.add('modal');
 
-    //Add new modal content
+     //Add new modal content
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
     closeButtonElement.innerText = 'Close';
+    closeButtonElement.addEventListener('click', hideModal);
 
     let titleElement = document.createElement('h1');
     titleElement.innerText = title;
@@ -80,9 +81,32 @@ let pokemonRepository = (function () {
     modalContainer.classList.add('is-visible');
   }
 
-  document.querySelector('#show-modal').addEventListener('click', () =>{
-    showModal();
+  function hideModal() {
+    modalContainer.classList.remove('is-visible');
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.kay === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();
+    }
   });
+
+  modalContainer.addEventListener('click', (e) => {
+    // Since this is also triggered when clicking INSIDE the modal
+    // We only want to close if the user clicks directly on the overlay
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
+
+
+  document.querySelector('#show-modal').addEventListener('click', () => {
+    showModal('Modal title', 'This is the modal content');
+  });
+
+
+
 
 
 
@@ -106,6 +130,8 @@ let pokemonRepository = (function () {
       console.log(item);
     });
   }
+
+
 
   return {
     add: add,

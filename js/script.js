@@ -4,10 +4,7 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   let modalContainer = document.querySelector('#modal-container');
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  let pokemonName = document.createElement('h1');
-      pokemonName.classList.add('Pokemon-name');
-  let pokemonHeight = document.createElement('p');
-      pokemonHeight.classList.add('Pokemon-height');
+
 
   // MODAL FUNCTIONS
   function showModal(title, text) {
@@ -170,13 +167,11 @@ let pokemonRepository = (function () {
 
     function showDetails(item) {
        loadDetails(item).then(function () {
-      pokemonName.innerHTML = item.name;
-      pokemonHeight.innerHTML = 'Height: ' + item.height;
-        showModal();
-      });
+       let pokemonName = item.name;
+       let pokemonHeight = "Height: " + item.height;
 
-      modal.appendChild(pokemonName);
-      modal.appendChild(pokemonHeight);
+        showModal(pokemonName, pokemonHeight);
+      });
     }
 
     return {

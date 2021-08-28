@@ -5,40 +5,64 @@ let pokemonRepository = (function () {
   let modalContainer = document.querySelector('#modal-container');
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+function renderPokemon(title, text, img)
+{
+
+  modalContainer.innerHTML = '';
+  let modal = document.createElement('div');
+  modal.classList.add('modal');
+
+  // <button class="modal-close">Button</button>
+  let closeButtonElement = document.createElement('button');
+  closeButtonElement.classList.add('modal-close');
+  closeButtonElement.innerText = 'Close';
+  closeButtonElement.addEventListener('click', hideModal);
+
+  let titleElement = document.createElement('h1');
+  titleElement.innerText = title;
+
+  let imgElement = document.createElement('img');
+  imgElement.src = img;
+
+  let contentElement = document.createElement('p');
+  contentElement.innerText = text;
+
+  modal.appendChild(closeButtonElement);
+  modal.appendChild(titleElement);
+  modal.appendChild(imgElement);
+  modal.appendChild(contentElement);
+  modalContainer.appendChild(modal);
+
+  modalContainer.classList.add('is-visible');
+
+}
+
+function showDetails(item) {
+   loadDetails(item).then(function () {
+   let pokemonName = item.name;
+   let pokemonHeight = "Height: " + item.height;
+
+   fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+     .then(response => response.json())
+     .then(response =>
+       {
+           showModal(pokemonName, pokemonHeight, response.sprites.front_default);
+       })
+     .catch(error=>console.log(error))
+
+
+  });
+}
 
   // MODAL FUNCTIONS
-  function showModal(title, text) {
-    modalContainer.innerHTML = '';
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
-
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
-
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = title;
-
-    let contentElement = document.createElement('p');
-    contentElement.innerText = text;
-
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
-    modalContainer.appendChild(modal);
-
-    modalContainer.classList.add('is-visible');
+  function showModal(title, text, img) {
+    renderPokemon(title, text, img);
   }
 
   function hideModal() {
     let maodalContainer = document.querySelector('#modal-container');
     modalContainer.classList.remove('is-visible');
 
-    if (dialogPromiseReject) {
-      dialogPromiseReject()
-      dialogPromiseReject = null;
-    }
   }
 
 // DIALOG FUNCTIONS
@@ -127,7 +151,7 @@ let pokemonRepository = (function () {
             detailsUrl: item.url
           };
           add(pokemon);
-          console.log(pokemon);
+          // console.log(pokemon);
         });
       }).catch(function (e) {
         console.error(e);
@@ -165,14 +189,7 @@ let pokemonRepository = (function () {
       return pokemonList;
     }
 
-    function showDetails(item) {
-       loadDetails(item).then(function () {
-       let pokemonName = item.name;
-       let pokemonHeight = "Height: " + item.height;
 
-        showModal(pokemonName, pokemonHeight);
-      });
-    }
 
     return {
       add: add,

@@ -5,52 +5,35 @@ let pokemonRepository = (function () {
   let modalContainer = document.querySelector('#modal-container');
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+// Creating displaying modal with Pokemon details and 'Close button'
 function renderPokemon(title, text, img)
 {
   modalContainer.innerHTML = '';
   let modal = document.createElement('div');
   modal.classList.add('modal');
-
-  // <button class="modal-close">Button</button>
+  // (<button class="modal-close">Button</button>) 'Close' button
   let closeButtonElement = document.createElement('button');
   closeButtonElement.classList.add('modal-close');
   closeButtonElement.innerText = 'Close';
   closeButtonElement.addEventListener('click', hideModal);
 
-  let titleElement = document.createElement('h1');
-  titleElement.innerText = title;
-
   let imgElement = document.createElement('img');
   imgElement.src = img;
+
+  let titleElement = document.createElement('h1');
+  titleElement.innerText = title;
 
   let contentElement = document.createElement('p');
   contentElement.innerText = text;
 
   modal.appendChild(closeButtonElement);
-  modal.appendChild(titleElement);
   modal.appendChild(imgElement);
+  modal.appendChild(titleElement);
   modal.appendChild(contentElement);
   modalContainer.appendChild(modal);
 
   modalContainer.classList.add('is-visible');
 
-}
-
-function showDetails(item) {
-   loadDetails(item).then(function () {
-   let pokemonName = item.name;
-   let pokemonHeight = "Height: " + item.height;
-
-   fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-     .then(response => response.json())
-     .then(response =>
-       {
-           showModal(pokemonName, pokemonHeight, response.sprites.front_default);
-       })
-     .catch(error=>console.log(error))
-
-
-  });
 }
 
   // MODAL FUNCTIONS
@@ -64,23 +47,10 @@ function showDetails(item) {
 
   }
 
-// DIALOG FUNCTIONS
+// DIALOG FUNCTION
   function showDialog(title, text) {
     showModal(title,text);
-// Adding confirm and cancel button to the modal
     let modal = modalContainer.querySelector('.modal');
-
-    let confirmButton = document.cerateElement('button')
-    confirmButton.classList.add('modal-confirm')
-    confirmButton.innerText = 'Confirm';
-
-    let cancelButton = document.querySelector('bitton');
-    cancelButton.classList.add('modal-cancle');
-    cancelButton.innerText = 'cancel';
-
-    modal.appendChild(confirmButton);
-    modal.appendChild(cancelButton);
-
     // Focusing confirmButton so that the user can simply press Enter
     confirmButton.focus();
     return new Promise((resolve, reject) => {
@@ -93,37 +63,77 @@ function showDetails(item) {
     // This can be used to reject from other functions
     dialogPromiseReject = reject;
   });
+
+    // let confirmButton = document.cerateElement('button')
+    // confirmButton.classList.add('modal-confirm')
+    // confirmButton.innerText = 'Confirm';
+
+    // let cancelButton = document.querySelector('bitton');
+    // cancelButton.classList.add('modal-cancle');
+    // cancelButton.innerText = 'cancel';
+
+    // modal.appendChild(confirmButton);
+    // modal.appendChild(cancelButton);
   }
 
-  document.querySelector('#show-dialog').addEventListener('click', () => {
-    showDialog('Confirm action', 'Are you sure you want to do this').then(function() {
-      alert('confirmed!');
-    }, () => {
-      alert('non confirmed');
-    });
-  });
+  // document.querySelector('#show-dialog').addEventListener('click', () => {
+  //   showDialog('Confirm action', 'Are you sure you want to do this').then(function() {
+  //     alert('confirmed!');
+  //   }, () => {
+  //     alert('non confirmed');
+  //   });
+  // });
 
 
-// ESCAPE BUTTON listener
+  // 'ESCAPE' BUTTON listener
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
       hideModal();
     }
   });
 
+  // Closing modal by clicking directly on the modal overal
   modalContainer.addEventListener('click', (e) => {
-    // Closing modal by clicking INSIDE the modal or directly on the overal
     let target = e.target;
     if (target === modalContainer) {
       hideModal();
     }
   });
 
-  document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal('Modal title', 'This is the modal content!');
-  });
+  // Function to load details data for a given Pokemon
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      // Now we add the details to the item
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
 
+  // Displaying modal with pokemon details: picture, name, height
+  function showDetails(item) {
+     loadDetails(item).then(function () {
+     let pokemonName = item.name;
+     let pokemonHeight = "Height: " + item.height;
+     // Calling Pokemon API with Pokemon pictures
+     fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+       .then(response => response.json())
+       .then(response =>
+         {
+             showModal(pokemonName, pokemonHeight, response.sprites.front_default);
+         })
+       .catch(error=>console.log(error))
+    });
+  }
 
+  // document.querySelector('#show-modal').addEventListener('click', () => {
+  //   showModal('Modal title', 'This is the modal content!');
+  // });
 
 // DOM FUNCTIONS
     function addListItem(pokemon) {
@@ -139,7 +149,7 @@ function showDetails(item) {
       });
     }
 
-    // Function for load data from an external source API
+    // Function for load Pokemon data from an external source API
     function loadList() {
       return fetch(apiUrl).then(function (response) {
         return response.json();
@@ -150,28 +160,11 @@ function showDetails(item) {
             detailsUrl: item.url
           };
           add(pokemon);
-          // console.log(pokemon);
         });
       }).catch(function (e) {
         console.error(e);
       })
     }
-
-    // Function to load details data for a given Pokemon
-    function loadDetails(item) {
-      let url = item.detailsUrl;
-      return fetch(url).then(function (response) {
-        return response.json();
-      }).then(function (details) {
-        // Now we add the details to the item
-        item.imageUrl = details.sprites.front_default;
-        item.height = details.height;
-        item.types = details.types;
-      }).catch(function (e) {
-        console.error(e);
-      });
-    }
-
 
     function add(pokemon) {
       if (
@@ -184,10 +177,10 @@ function showDetails(item) {
       }
     }
 
+
     function getAll() {
       return pokemonList;
     }
-
 
 
     return {

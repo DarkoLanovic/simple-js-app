@@ -7,7 +7,6 @@ let pokemonRepository = (function () {
 
 function renderPokemon(title, text, img)
 {
-
   modalContainer.innerHTML = '';
   let modal = document.createElement('div');
   modal.classList.add('modal');

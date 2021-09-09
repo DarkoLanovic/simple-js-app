@@ -61,27 +61,7 @@ let pokemonRepository = (function () {
       // This can be used to reject from other functions
       dialogPromiseReject = reject;
     });
-
-    // let confirmButton = document.cerateElement('button')
-    // confirmButton.classList.add('modal-confirm')
-    // confirmButton.innerText = 'Confirm';
-
-    // let cancelButton = document.querySelector('bitton');
-    // cancelButton.classList.add('modal-cancle');
-    // cancelButton.innerText = 'cancel';
-
-    // modal.appendChild(confirmButton);
-    // modal.appendChild(cancelButton);
   }
-
-  // document.querySelector('#show-dialog').addEventListener('click', () => {
-  //   showDialog('Confirm action', 'Are you sure you want to do this').then(function() {
-  //     alert('confirmed!');
-  //   }, () => {
-  //     alert('non confirmed');
-  //   });
-  // });
-
 
   // 'ESCAPE' BUTTON listener
   window.addEventListener('keydown', (e) => {
@@ -128,10 +108,6 @@ let pokemonRepository = (function () {
           .catch(error=>console.log(error))
         });
       }
-
-      // document.querySelector('#show-modal').addEventListener('click', () => {
-      //   showModal('Modal title', 'This is the modal content!');
-      // });
 
       // DOM FUNCTIONS
       function addListItem(pokemon) {

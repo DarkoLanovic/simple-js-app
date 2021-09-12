@@ -5,7 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>pokedex</title>
-  <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon" >
+  <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Tourney&display=swap" rel="stylesheet">
   <!-- Bootstrap’s CSS -->
   <link
   rel="stylesheet"
@@ -28,53 +30,54 @@
         <a class="nav-link active" href="index.html">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="https://www.pokemon.com/us/">Explore more</a>
+        <a class="nav-link active" href="https://www.pokemon.com/us/">Explore</a>
+      </li>
+      <li class="nav-item">
+        <button id="creator" class="nav-link active">Creator</button>
       </li>
     </ul>
   </header>
 
   <main class="main">
-    <h1 class="title">Pokemon List</h1>
-  <div id='modal-container'></div>
-  <div id='show-modal'></div>
-  <div id='show-dialog'></div>
+     <div class="main-title">
+       <h1 class="title">Pokemon List</h1>
+     </div>
 
-
-
-  <ul class="pokemon-list"></ul>
-
+    <ul class="pokemon-list"></ul>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="exampleModalLabel">Modal title</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body"></div>
+        </div>
+      </div>
+    </div>
   </main>
 
+  <!-- jQuery -->
+  <script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin="anonymous"></script>
+  <!-- Popper -->
+  <script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+  crossorigin="anonymous"></script>
 
-
-
-  <!-- URL of the CDNn(Content Delivery Network)- network of servers spread across the entire globe, decreases page load time significantly -->
-  <!-- <script
-  src="https://code.jquery.com/git/jquery-git.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous">
-</script> -->
-
-<!-- jQuery -->
-<script
-src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-crossorigin="anonymous"></script>
-<!-- Popper -->
-<script
-src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-crossorigin="anonymous"></script>
-<!-- Bootstrap JS -->
-<script
-src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-crossorigin="anonymous"></script>
-
-<script src="js/promise-polyfill.js"></script>
-<script src="js/fetch-polyfill.js"></script>
-<!-- <script src="js/jquery-3.6.0.min.js"></script> -->
-<script src="js/script.js"></script>
+  <script src="js/promise-polyfill.js"></script>
+  <script src="js/fetch-polyfill.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>

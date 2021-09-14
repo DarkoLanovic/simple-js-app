@@ -1,7 +1,8 @@
 
 .main {
   width: 100%;
-  background-color: #BF6D0C;
+  background-color: #bf6d0c;
+  color: inherit;
 }
 
 .main-title {
@@ -26,7 +27,6 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  color: red;
   width: inherit;
   height: 30%;
   margin: 40px auto;
@@ -39,28 +39,24 @@
 
 .button-class {
   /* display: inline-block; */
-  background-color: #FFE7BD;
+  background-color: #ffe7bd;
   border-radius: 30px;
   text-align: inherit;
   font-family:'Tourney', sans-serif;
   font-size: 28px;
   padding: 20px;
   width: 200px;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-   transition: all 0.5s;
-   cursor: pointer;
-   margin: 5px;
+  cursor: pointer;
+  margin: 5px;
 }
 .modal-content {
   color: #61C084;
-  background-color: #E4E184;
+  background-color: #e4e184;
 }
 .modal-header {
-  background-color: #61C084;
-  color: #2E1D13;
+  background-color: #61c084;
+  color: #2e1d13;
 }
 .modal-body {
-  color: #44344D;
+  color: #44344d;
 }

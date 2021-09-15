@@ -59,7 +59,7 @@ const pokemonRepository = (function () {
   return {
     main,
     getAll,
-  };
+  };  
 })();
 
 pokemonRepository.main();

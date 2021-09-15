@@ -45,7 +45,7 @@ const pokemonRepository = (function () {
   }
 
   function loadcreator() {
-    $("#creator").click(() => {
+    $('#creator').click(() => {
       alert("Created by Darko!");
     });
   }
